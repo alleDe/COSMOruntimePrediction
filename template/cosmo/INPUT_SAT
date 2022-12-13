@@ -1,0 +1,8 @@
+  &SATCTL
+     num_sensors=2,
+     sat_input_01='METEOSAT',7,'MVIRI', 2, .TRUE., .TRUE., .TRUE., .TRUE.,
+     nchan_input_01=1,2
+     sat_input_02='MSG'     ,1,'SEVIRI',8, .TRUE., .TRUE., .TRUE., .TRUE.,
+     nchan_input_02=1,2,3,4,5,6,7,8
+     lcon_clw=.FALSE.,
+  /END

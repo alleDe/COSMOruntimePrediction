@@ -1,0 +1,35 @@
+#!/bin/bash
+#SBATCH --output out
+#SBATCH --exclusive
+#SBATCH --error  err
+#SBATCH --partition=gll_meteo_prod
+#SBATCH --qos=gll_qos_meteoarpae
+#SBATCH -A smr_prod
+#SBATCH --time=00:25:00
+#SBATCH --nodes={n_nodes}
+#SBATCH --ntasks-per-node={n_cores}
+#SBATCH --sockets-per-node=2
+#SBATCH --cores-per-socket={n_cores_half}
+#SBATCH --ntasks-per-socket={n_cores_half}
+#SBATCH --cpus-per-task=1
+#SBATCH --ntasks-per-core=1
+
+module load autoload
+module load intel
+module load hdf5
+module load intelmpi
+module load mkl
+set -e
+set -u
+set -o pipefail
+
+export LD_LIBRARY_PATH=/gpfs/meteo/lami/srcintel/install/lib:$LD_LIBRARY_PATH
+export GRIB_DEFINITION_PATH=/gpfs/meteo/lami/grib_api_edzw/1.16.0/definitions.cnmc:/gpfs/meteo/lami/grib_api_edzw/1.16.0/definitions
+export GRIB_SAMPLES_PATH=/gpfs/meteo/lami/grib_api_edzw/1.16.0/samples
+
+cd $SLURM_SUBMIT_DIR
+# mpirun lancia il numero richiesto di copie del programma parallelo mpi
+# distribuendole sui nodi forniti dallo scheduler slurm
+rm -f YU*
+mpirun -np $SLURM_NTASKS {cosmo_path}/lmparbin_all
+rm -f dataoutput*/* YUCHKDAT YUSPECIF

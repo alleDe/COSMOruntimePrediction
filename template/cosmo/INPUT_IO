@@ -1,0 +1,75 @@
+&IOCTL
+  lasync_io=.FALSE.,
+  ytrans_out='./dataoutput/',
+  ncenter=80,
+  ymode_read='r  ',
+  ymode_write='w  ',
+  yform_read='apix',
+  l_ke_in_gds=.TRUE.,
+  ngribout=1,
+ /END
+
+ &DATABASE
+ /END 
+
+ &GRIBIN
+  lbdana=.FALSE.,
+  ydirini='{inputdir}',
+  lchkini=.TRUE.,
+  hincbound=1,
+  ydirbd='{inputdir}',
+  lchkbd =.TRUE.,  
+  lan_w_so   = .TRUE.,
+  lan_t_so0  = .TRUE.,
+  lan_t_snow = .TRUE.,
+  lan_t_cl   = .TRUE.,
+  lan_w_snow = .TRUE.,
+  lan_w_i    = .TRUE.,
+  lan_w_cl   = .TRUE.,
+  lan_vio3   = .TRUE.,
+  lan_hmo3   = .TRUE.,
+  lan_plcov  = .TRUE.,
+  lan_lai    = .TRUE.,
+  lan_rootdp = .TRUE.,
+  lana_qi    = .TRUE.,
+  llb_qi     = .TRUE.,
+  lana_qr_qs = .TRUE.,
+  llb_qr_qs  = .TRUE.,
+ /END
+ 
+ &GRIBOUT
+  nprocess_ini=12,
+  nprocess_bd=12,
+  hcomb=0,3,1,
+  lanalysis=.FALSE.,
+  luvmasspoint=.FALSE.,
+  yvarml=
+         'U       ','V       ','W       ','T       ','PP      ',
+         'P       ','T_SNOW  ','W_I     ','QV_S    ','W_SNOW  ',
+         'T_S     ','T_SO    ','W_SO    ','W_SO_ICE',
+         'FRESHSNW','RHO_SNOW','H_SNOW  '
+         'QV      ','QC      ','QI      ','QR      ','QS      ',
+         'QG      ',
+         'T_ICE   ','H_ICE   ','T_MNW_LK','T_WML_LK','T_BOT_LK',
+         'C_T_LK  ','H_ML_LK ','T_B1_LK ','H_B1_LK '
+         'PS      ','TKE     ','RAIN_GSP','SNOW_GSP',
+         'U_10M   ','V_10M   ','T_2M    ','TD_2M   ','TMIN_2M ',
+         'TMAX_2M ','VMAX_10M','TCM     ','TCH     ','CLCT    ',
+         'CLCH    ','CLCM    ','CLCL    ','ALB_RAD ','ASOB_S  ',
+         'ATHB_S  ','ASOB_T  ','ATHB_T  ','APAB_S  ','TOT_PREC',
+         'Z0      ','AUMFL_S ','AVMFL_S ','ASHFL_S ','ALHFL_S ',
+         'BAS_CON ','TOP_CON',
+         'HTOP_DC ','RUNOFF_S','RUNOFF_G',
+         'PMSL    ','T_G     ','HTOP_CON','HBAS_CON','CLC     ',
+         'HZEROCL ','CLCT_MOD','CLDEPTH ','TDIV_HUM',
+         'TWATER  ','TQV     ','AEVAP_S ',
+         'CAPE_ML ','CIN_ML  ',
+         'ASWDIR_S','ASWDIFD_S',
+  yvarpl=' '
+  yvarzl=' ',
+  yvarsl=' ',
+  lcheck = .TRUE.,
+  lwrite_const=.TRUE.
+  ydir='./dataoutput',
+  yform_write = 'api1',
+ /END

@@ -1,0 +1,27 @@
+#!/bin/bash
+#SBATCH --output out
+#SBATCH --error  err
+#SBATCH --partition=gll_meteo_prod
+#SBATCH --qos=gll_qos_meteoarpae
+#SBATCH -A smr_prod
+#SBATCH --time=05:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=32
+#SBATCH --sockets-per-node=2
+#SBATCH --cores-per-socket=16
+#SBATCH --ntasks-per-socket=16
+#SBATCH --cpus-per-task=1
+#SBATCH --ntasks-per-core=1
+
+module load autoload
+module load intel
+module load hdf5
+module load intelmpi
+export LD_LIBRARY_PATH=/gpfs/meteo/lami/srcintel/install/lib:$LD_LIBRARY_PATH
+
+export GRIB_DEFINITION_PATH=/gpfs/meteo/lami/grib_api_edzw/1.16.0/definitions.cnmc:/gpfs/meteo/lami/grib_api_edzw/1.16.0/definitions
+export GRIB_SAMPLES_PATH=/gpfs/meteo/lami/grib_api_edzw/1.16.0/samples
+
+cd $SLURM_SUBMIT_DIR
+rm -f YU*
+mpirun -np $SLURM_NTASKS /gpfs/meteo/lami/srcintel/int2lm_180226_2.05/tstint2lm

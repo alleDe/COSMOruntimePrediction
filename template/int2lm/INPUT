@@ -1,0 +1,74 @@
+ &CONTRL
+  ydate_ini='{reftime}', ydate_bd='{reftime}',
+  hstart=0, hstop=2, hincbound=1,
+  nincwait=0, nmaxwait=0,
+  nprocx=4, nprocy=8, luvcor=.TRUE., lprog_qi=.TRUE., lprog_qr_qs=.TRUE.,
+  lvertwind_ini=.TRUE., lvertwind_bd=.TRUE., lforest=.TRUE.,
+  lmulti_layer_lm=.TRUE., lsso=.TRUE.,
+  itype_w_so_rel=1, itype_t_cl=0,
+  llake=.TRUE., llake_coldstart=.TRUE., lforest=.TRUE.,
+  lmulti_layer_in=.TRUE., l_smi=.TRUE.,
+  itype_aerosol=1, itype_ndvi=1, itype_albedo=1,
+  linitial=.TRUE., lboundaries=.TRUE.,
+  ltime_proc=.FALSE., ltime_mean=.TRUE., 
+  lroutine=.FALSE., yinput_model='COSMO',
+  lfilter_oro=.TRUE.,
+  ilow_pass_oro=4,
+  ilow_pass_xso=5,
+  rxso_mask=625.0000,
+  lfilter_pp=.TRUE.,
+  itype_balance_pp = 2,
+  itype_fast_waves_lm = 2,
+  lreorder=.FALSE.,
+ /END
+ &GRID_IN
+  ie_in_tot = 1083, je_in_tot = 559, ke_in_tot = 45,
+  startlat_in_tot = -13.050, startlon_in_tot = -25.290,
+  pollat_in = 47., pollon_in = -170.,
+  dlat_in = 0.045, dlon_in = 0.045,
+ /END
+ &LMGRID
+  startlat_tot={start_lat:.02f}, startlon_tot={start_lon:.02f},
+  ielm_tot={ni}, jelm_tot={nj}, kelm_tot=65,
+  pollat=47.000, pollon=-170.000,
+  dlon={step}, dlat={step},
+  ivctype=2, irefatm=2, lanalyt_calc_t0p0=.true., vcflat=11357.0,
+  vcoord_d=22000.00, 21040.00, 20108.89, 19206.23, 18331.56, 17484.43,
+           16664.39, 15870.99, 15103.78, 14362.31, 13646.12, 12954.77,
+           12287.80, 11644.76, 11025.21, 10428.69, 9854.74, 9302.93,
+           8772.80, 8263.89, 7775.76, 7307.95, 6860.02, 6431.51,
+           6021.97, 5630.95, 5258.01, 4902.68, 4564.52, 4243.08,
+           3937.90, 3648.54, 3374.54, 3115.46, 2870.84, 2640.22,
+           2423.17, 2219.23, 2027.95, 1848.87, 1681.55, 1525.53,
+           1380.37, 1245.61, 1120.80, 1005.49, 899.24, 801.58, 712.07,
+           630.26, 555.69, 487.92, 426.49, 370.95, 320.86, 275.76,
+           235.19, 198.72, 165.88, 136.23, 109.32, 84.69, 61.89,
+           40.48, 20.00, 0.00
+ /END
+ DATABASE
+ /END
+ &DATA
+  ie_ext={ie_ext}, je_ext={je_ext},
+  ylmext_lfn='{ncfile}',
+  ylmext_cat='{ncdir}',
+  yinext_lfn='lfff00000000c',
+  yinext_cat='/gpfs/meteo/lm/galileo/auto/archive/PROD/00/{day}/o_lm5_ope_forecast'
+  yin_cat='/gpfs/meteo/lm/galileo/auto/archive/PROD/00/{day}/o_lm5_ope_forecast',
+  ylm_cat='.',
+  ymode_read='r  '
+  ymode_write='w  '
+  nprocess_ini=13, 
+  nprocess_bd=13,
+  ncenter=80,
+  l_ke_in_gds=.TRUE.,
+  nl_soil_in=2, nl_soil_lm=2,
+  yinext_form_read='apix',
+  yin_form_read='apix',
+  ylmext_form_read='ncdf',
+  ylm_form_write='api1',
+ /END
+ &PRICTR
+  igp_tot = 36, 40, 48, 44, 48, 85, 77,
+  jgp_tot = 30, 94, 38, 26, 26, 96, 12,
+  lchkin=.TRUE., lchkout=.TRUE.,
+ /END

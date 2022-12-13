@@ -1,0 +1,31 @@
+ &DYNCTL
+  betasw=0.4,
+  xkd=0.1,
+  epsass=0.15,
+  lhordiff=.true.,
+   itype_hdiff=2,
+   hd_corr_trcr_bd=0.0,
+   hd_corr_t_bd=0.0,
+   hd_corr_u_bd=0.25,
+   hd_corr_p_bd=0.0,
+   hd_corr_trcr_in=0.0,
+   hd_corr_t_in=0.0,
+   hd_corr_u_in=0.25,
+   hd_corr_p_in=0.0,
+   hd_dhmax=250.,
+  lsemi_imp=.FALSE.,
+  l2tls=.TRUE.,
+   irunge_kutta=1,
+   iadv_order=3,
+   irk_order=3,
+   y_scalar_advect='Bott2_Strang',
+   ldiabf_lh=.TRUE.,
+   y_vert_adv_dyn='impl2',
+  lcond=.TRUE.,
+   itype_fast_waves = 2
+   itype_bbc_w      = 114
+   ldyn_bbc         = .FALSE.
+  rlwidth=20000.0,
+  lspubc=.true.,
+   nrdtau=5,
+ /END
