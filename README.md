@@ -1,38 +1,20 @@
 
+Abstract
 
-La presente tesi si prefissa l'obiettivo di predire il tempo di esecuzione per
-il lancio del modello COSMO su HPC (Galileo) usando tecniche di Deep Learning.
+This work aims to predict the execution time for the launch of the COSMO model on HPC (Galileo) using Deep Learning techniques.
 
-A regime e in condizioni normali, le varie configurazioni del modello rimangono
-invariate e i tempi di esecuzione sono sostanzialmente ben definiti. Tuttavia,
-una accurata previsione del tempo di esecuzione di un modello permette una
-migliore allocazione delle risorse a disposizione, una più facile
-individuazione della configurazione migliore in termini di tempo e una rapida
-ed efficace reazione a fronte di variazioni delle risorse a disposizione (e.g.
-temporanea diminuzione del numero di nodi a causa di malfunzionamenti oppure
-per l'introduzione di nuovi job concorrenti).
+When fully operational and under normal conditions, the various configurations of the model remain unchanged and the execution times are substantially well defined. However, an accurate prediction of the execution time of a model allows a better allocation of the available resources, an easier identification of the best configuration in terms of time and a rapid and effective reaction in the face of variations in the available resources (e.g. temporary decrease of the number of nodes due to malfunctions or the introduction of new concurrent jobs).
 
-Inoltre, parte integrante del lavoro consisterà nell'esecuzione degli
-esperimenti necessari a creare il dataset, per poter effetturare il training e
-il test del modello.
+Furthermore, an integral part of the work will consist in carrying out the experiments necessary to create the dataset, in order to be able to train and test the model.
 
-Il modello si basa su un dominio quadrato fisso, che può avere varie
-risoluzioni ed essere diviso in un numero variabile di sottodomini di forma
-varia (si veda il capitolo 1 per approfondimenti ed ulteriori parametri
-considerati), che viene usato come base per le simulazioni (eseguite con un
-numero variabile di nodi e core).
+The model is based on a fixed square domain, which can have various resolutions and be divided into a variable number of subdomains of various shapes (see chapter 1 for further details and further parameters considered), which is used as a basis for the simulations ( performed with a variable number of nodes and cores).
 
-Ogni caso reale può essere ricondotto al dominio quadrato di riferimento:
-attraverso un procedimento analitico, è possibile sia trovare l'input
-normalizzato su cui effettuare le previsione sia calcolare proporzionalmente
-il tempo di esecuzione previsto per la griglia reale sulla base di quello
-previsto per la griglia quadrata di riferimento (il procedimento analitico è in
-fase di definizione, si veda issue #4).
+Each real case can be traced back to the reference squared domain: through an analytical procedure, it is possible both to find the normalized input on which to make the predictions and to proportionally calculate the expected execution time for the real grid on the basis of that expected for the reference square (the analytical procedure is being defined, see issue #4).
 
-La bontà del procedimento (previsione sul dominio normalizzato + procedimento
-analitico) può essere fatto basandosi su simulazione effettuate con il dominio
-di COSMO 2I (576x701 punti con passo di griglia 0.02 nel dominio ruotato).
+The goodness of the procedure (prediction on the normalized domain + analytical procedure) can be done based on simulations carried out with the COSMO 2I domain (576x701 points with 0.02 grid pitch in the rotated domain).
 
+
+------------------------------------------------------------------------------------------------------------------------
 ## Indice
 
 1. [Individuazione dei parametri e dei loro range](#individuazione-dei-parametry-e-dei-loro-range)
