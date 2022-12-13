@@ -1,4 +1,4 @@
-# Tesi magistrale
+
 
 La presente tesi si prefissa l'obiettivo di predire il tempo di esecuzione per
 il lancio del modello COSMO su HPC (Galileo) usando tecniche di Deep Learning.
