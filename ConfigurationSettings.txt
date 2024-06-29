@@ -1,17 +1,17 @@
-Configuration Settings:
+***Configuration Settings:***
 
-The configurations were performed on GALILEO (https://www.hpc.cineca.it/hardware/galileo100), in the same environment as the operational versions of Arpae-SIMC and using the same tools. 
+- The configurations were performed on GALILEO (https://www.hpc.cineca.it/hardware/galileo100), in the same environment as the operational versions of Arpae-SIMC and using the same tools. 
 
-We employed a homogeneous subset of GALILEO100 nodes, namely those typically used for weather forecasting simulations. These are the so called “thin nodes”: 2 x CPU Intel CascadeLake 8260, with 24 cores each, 2.4 GHz, 384GB RAM with 480 GB SSD. 
+- We employed a homogeneous subset of GALILEO100 nodes, namely those typically used for weather forecasting simulations. These are the so called “thin nodes”: 2 x CPU Intel CascadeLake 8260, with 24 cores each, 2.4 GHz, 384GB RAM with 480 GB SSD. 
 
-A series of scripts have been implemented in Python to generate each instance of the model starting from the configuration of the COSMO operating model and modifying only the fields relating to the chosen input parameters (see ...). 
+- A series of scripts have been implemented in Python to generate each instance of the model starting from the configuration of the COSMO operating model and modifying only the fields relating to the chosen input parameters (see ...). 
 
-The same tool was also used for scheduling the various instances of the model, namely Simple Linux Utility Resource Management (SLURM), a popular open-source system for managing cluster resources. 
+- The same tool was also used for scheduling the various instances of the model, namely Simple Linux Utility Resource Management (SLURM), a popular open-source system for managing cluster resources. 
 
-Each configuration was performed in exclusive mode (SLURM --exclusive option), without sharing the node with other jobs. 
+- Each configuration was performed in exclusive mode (SLURM --exclusive option), without sharing the node with other jobs. 
 
-At the end of each execution, a  log file is automatically generated which lists the times of the various parts of the model, including those required for the generation of each forecast hour. 
+- At the end of each execution, a  log file is automatically generated which lists the times of the various parts of the model, including those required for the generation of each forecast hour. 
 
-We collect this information in two CSV files, one for each type of dataset (DGF and DGV).
+- We collect this information in two CSV files, one for each type of dataset (DGF and DGV).
 
-The total number of runs for the fixed and variable configurations are 5,758 and 5,000, respectively.
+- The total number of runs for the fixed and variable configurations are 5,758 and 5,000, respectively.
